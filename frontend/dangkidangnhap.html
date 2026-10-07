@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Đăng nhập / Đăng ký - StudyShare</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="dangkidangnhap.css">
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <!-- ================= LOGIN FORM ================= -->
+
+        <div class="form-box login">
+
+            <form id="login-form">
+
+                <h1>Đăng nhập</h1>
+
+                <div class="input-box">
+                    <input
+                        type="email"
+                        name="email"
+                        autocomplete="email"
+                        placeholder="Email"
+                        required
+                    >
+
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+
+                <div class="input-box">
+                    <input
+                        type="password"
+                        name="password"
+                        autocomplete="current-password"
+                        placeholder="Mật khẩu"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="toggle-password"
+                        aria-label="Hiện mật khẩu"
+                        aria-pressed="false"
+                    >
+                        <i class="fa-solid fa-eye" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn"
+                >
+                    Đăng nhập
+                </button>
+
+                <p class="form-message" id="login-message" role="status" aria-live="polite"></p>
+
+            </form>
+
+        </div>
+
+
+        <!-- ================= REGISTER FORM ================= -->
+
+        <div class="form-box register">
+
+            <form id="register-form">
+
+                <h1>Tạo tài khoản</h1>
+
+
+                <div class="input-box">
+                    <input
+                        type="text"
+                        name="username"
+                        autocomplete="name"
+                        placeholder="Họ và tên"
+                        maxlength="100"
+                        required
+                    >
+
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+
+                <div class="input-box">
+                    <input
+                        type="email"
+                        name="email"
+                        autocomplete="email"
+                        placeholder="Email"
+                        maxlength="254"
+                        required
+                    >
+
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+
+
+                <div class="input-box">
+                    <input
+                        type="password"
+                        name="password"
+                        autocomplete="new-password"
+                        placeholder="Mật khẩu (ít nhất 8 ký tự)"
+                        minlength="8"
+                        maxlength="72"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="toggle-password"
+                        aria-label="Hiện mật khẩu"
+                        aria-pressed="false"
+                    >
+                        <i class="fa-solid fa-eye" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn"
+                >
+                    Đăng ký
+                </button>
+
+                <p class="form-message" id="register-message" role="status" aria-live="polite"></p>
+
+            </form>
+
+        </div>
+
+
+        <!-- ================= BLUE TOGGLE PANEL ================= -->
+
+        <div class="toggle-box">
+
+
+            <!-- LEFT PANEL -->
+
+            <div class="toggle-panel toggle-left">
+
+                <h1>Xin chào!</h1>
+
+                <p>Bạn chưa có tài khoản?</p>
+
+                <button
+                    type="button"
+                    class="btn register-btn"
+                >
+                    Đăng ký
+                </button>
+
+            </div>
+
+
+            <!-- RIGHT PANEL -->
+
+            <div class="toggle-panel toggle-right">
+
+                <h1>Chào mừng trở lại!</h1>
+
+                <p>Bạn đã có tài khoản?</p>
+
+                <button
+                    type="button"
+                    class="btn login-btn"
+                >
+                    Đăng nhập
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="dangkidangnhap.js"></script>
+
+</body>
+
+</html>

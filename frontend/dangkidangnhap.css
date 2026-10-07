@@ -1,0 +1,568 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: "Montserrat", sans-serif;
+
+    text-decoration: none;
+    list-style: none;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(90deg, #fffefe, #f4f7fb);
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    position: relative;
+
+    width: 850px;
+    height: 550px;
+
+    margin: 20px;
+
+    background: #fff;
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 0 30px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+.container h1 {
+    font-size: 32px;
+
+    margin: -10px 0 10px;
+
+    font-weight: 700;
+}
+
+.container p {
+    font-size: 14px;
+
+    margin: 15px 0;
+}
+
+.form-message {
+    min-height: 20px;
+    color: #a33d36;
+    font-size: 12px !important;
+    line-height: 1.5;
+}
+
+.form-message.success {
+    color: #28733d;
+}
+
+.form-box.register form {
+    padding-block: 10px;
+}
+
+.form-box.register .input-box {
+    margin: 13px 0;
+}
+
+.form-box.register .input-box input {
+    height: 44px;
+}
+
+
+/* =========================
+   FORM BOX
+========================= */
+
+.form-box {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 50%;
+    height: 100%;
+
+    background: #fff;
+
+    display: flex;
+    align-items: center;
+
+    color: #333;
+
+    text-align: center;
+
+    padding: 40px;
+
+    z-index: 1;
+
+    transition:
+        right 0.6s ease-in-out 1.2s,
+        visibility 0s 1s;
+}
+
+
+/* LOGIN chuyển sang trái */
+
+.container.active .form-box {
+    right: 50%;
+}
+
+
+/* =========================
+   REGISTER
+========================= */
+
+.form-box.register {
+    visibility: hidden;
+}
+
+.container.active .form-box.register {
+    visibility: visible;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+form {
+    width: 100%;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+.input-box {
+    position: relative;
+
+    width: 100%;
+
+    margin: 20px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 46px;
+
+    padding: 13px 50px 13px 20px;
+
+    background: #eee;
+
+    border: none;
+    outline: none;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    color: #333;
+}
+
+.input-box input::placeholder {
+    color: #888;
+}
+
+.input-box input:focus {
+    box-shadow:
+        0 0 0 2px rgba(74, 144, 226, 0.25);
+}
+
+.input-box i {
+    position: absolute;
+
+    right: 18px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 17px;
+
+    color: #4a90e2;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    display: grid;
+    width: 36px;
+    height: 36px;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: #4a90e2;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.toggle-password:hover {
+    background: rgba(74, 144, 226, 0.1);
+}
+
+.toggle-password:focus-visible {
+    outline: 2px solid #4a90e2;
+    outline-offset: 2px;
+}
+
+.toggle-password i {
+    position: static;
+    transform: none;
+}
+
+
+/* =========================
+   FORGOT PASSWORD
+========================= */
+
+.forgot-link {
+    margin: -5px 0 15px;
+
+    text-align: right;
+}
+
+.forgot-link a {
+    font-size: 12px;
+
+    color: #4a90e2;
+}
+
+.forgot-link a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn {
+    width: 100%;
+    height: 46px;
+
+    border: none;
+    outline: none;
+
+    border-radius: 8px;
+
+    background: #4a90e2;
+
+    color: #fff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #357abd;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   SOCIAL ICONS
+========================= */
+
+.social-icons {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 10px;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid #ccc;
+
+    border-radius: 8px;
+
+    color: #4a90e2;
+
+    font-size: 18px;
+
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    background: #4a90e2;
+
+    border-color: #4a90e2;
+
+    color: #fff;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   TOGGLE BOX
+========================= */
+
+.toggle-box {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   BLUE BACKGROUND
+========================= */
+
+.toggle-box::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -250%;
+
+    width: 300%;
+    height: 100%;
+
+    background: #4a90e2;
+
+    border-radius: 150px;
+
+    z-index: 2;
+
+    transition: 1.8s ease-in-out;
+}
+
+
+/* Active */
+
+.container.active .toggle-box::before {
+    left: 50%;
+}
+
+
+/* =========================
+   TOGGLE PANEL
+========================= */
+
+.toggle-panel {
+    position: absolute;
+
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    color: #fff;
+
+    text-align: center;
+
+    z-index: 3;
+
+    pointer-events: auto;
+
+    transition:
+        0.6s ease-in-out;
+}
+
+
+/* =========================
+   LEFT PANEL
+========================= */
+
+.toggle-panel.toggle-left {
+    left: 0;
+
+    transition-delay: 1.2s;
+}
+
+.container.active .toggle-panel.toggle-left {
+    left: -50%;
+
+    transition-delay: 0.6s;
+}
+
+
+/* =========================
+   RIGHT PANEL
+========================= */
+
+.toggle-panel.toggle-right {
+    right: -50%;
+
+    transition-delay: 0.6s;
+}
+
+.container.active .toggle-panel.toggle-right {
+    right: 0;
+
+    transition-delay: 1.2s;
+}
+
+
+/* =========================
+   TOGGLE TEXT
+========================= */
+
+.toggle-panel h1 {
+    font-size: 28px;
+
+    margin-bottom: 5px;
+}
+
+.toggle-panel p {
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   TOGGLE BUTTON
+========================= */
+
+.toggle-panel .btn {
+    width: 140px;
+    height: 42px;
+
+    background: transparent;
+
+    border: 2px solid #fff;
+
+    box-shadow: none;
+
+    transition: 0.3s;
+}
+
+.toggle-panel .btn:hover {
+    background: #fff;
+
+    color: #4a90e2;
+
+    transform: translateY(-2px);
+}
+
+@media (max-width: 700px) {
+    .container {
+        width: min(100% - 24px, 480px);
+        height: min(650px, calc(100vh - 24px));
+        min-height: 390px;
+        margin: 12px;
+    }
+
+    .form-box,
+    .container.active .form-box {
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: calc(100% - 84px);
+        padding: 24px;
+        overflow-y: auto;
+        transition: none;
+    }
+
+    .form-box form {
+        flex: 0 0 auto;
+    }
+
+    .container.active .form-box.login {
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .container:not(.active) .form-box.login,
+    .container.active .form-box.register {
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .toggle-box {
+        top: auto;
+        bottom: 0;
+        height: 84px;
+        pointer-events: auto;
+    }
+
+    .toggle-box::before {
+        display: none;
+    }
+
+    .toggle-panel,
+    .toggle-panel.toggle-left,
+    .toggle-panel.toggle-right,
+    .container.active .toggle-panel.toggle-left,
+    .container.active .toggle-panel.toggle-right {
+        top: 0;
+        right: auto;
+        left: 0;
+        width: 100%;
+        height: 84px;
+        padding: 10px;
+        transition: none;
+    }
+
+    .toggle-panel h1 {
+        display: none;
+    }
+
+    .toggle-panel p {
+        display: none;
+    }
+
+    .toggle-panel .btn {
+        height: 44px;
+    }
+
+    .container:not(.active) .toggle-panel.toggle-right,
+    .container.active .toggle-panel.toggle-left {
+        display: none;
+    }
+}

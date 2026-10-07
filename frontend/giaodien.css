@@ -1,0 +1,694 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    background: #fffdfd;
+    color: #222;
+
+    transition: 0.5s;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    width: 100%;
+    padding: 30px 5% 0;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding: 18px 30px;
+
+    background: #4a90e2;
+
+    border-radius: 50px;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+
+    transition: 0.5s;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+    flex-shrink: 0;
+}
+
+.logo a {
+    text-decoration: none;
+
+    color: white;
+
+    font-size: 28px;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   MENU
+========================= */
+
+nav ul {
+    display: flex;
+
+    gap: 8px;
+
+    list-style: none;
+
+    align-items: center;
+
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    list-style: none;
+}
+
+
+/* =========================
+   MENU LINK
+========================= */
+
+nav ul li a {
+    position: relative;
+
+    display: block;
+
+    padding: 10px 15px;
+
+    border-radius: 999px;
+
+    text-decoration: none;
+
+    color: #ececec;
+
+    font-size: 16px;
+
+    font-weight: 500;
+
+    transition: 0.35s ease;
+}
+
+nav ul li a:hover {
+    color: white;
+
+    background: rgba(255, 255, 255, 0.2);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   DARK / LIGHT BUTTON
+========================= */
+
+#darkMode {
+    display: none;
+}
+
+.toggle {
+    position: relative;
+
+    width: 70px;
+    height: 36px;
+
+    display: block;
+
+    background: #d9d9d9;
+
+    border-radius: 100px;
+
+    cursor: pointer;
+
+    box-shadow:
+        inset 0 5px 10px rgba(0, 0, 0, 0.2);
+
+    transition: 0.5s;
+
+    flex-shrink: 0;
+}
+
+
+/* HÌNH TRÒN */
+
+.toggle span {
+    position: absolute;
+
+    width: 28px;
+    height: 28px;
+
+    top: 4px;
+    left: 4px;
+
+    background: #f2f2f2;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.3);
+
+    transition: 0.5s;
+}
+
+
+/* DARK MODE BẬT */
+
+#darkMode:checked + .toggle {
+    background: #444;
+}
+
+#darkMode:checked + .toggle span {
+    left: 38px;
+
+    background: #222;
+}
+
+
+/* =========================
+   THANH TÌM KIẾM
+========================= */
+
+.timkiem {
+    max-width: 700px;
+
+    margin: 25px auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+/* Ô TÌM KIẾM */
+
+.timkiem input {
+    flex: 1;
+
+    height: 45px;
+
+    padding: 0 18px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 25px;
+
+    outline: none;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+.timkiem input:focus {
+    border-color: #4a90e2;
+
+    box-shadow:
+        0 0 8px rgba(74, 144, 226, 0.3);
+}
+
+
+/* NÚT TÌM KIẾM */
+
+.timkiem button {
+    height: 45px;
+
+    padding: 0 22px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background: #4a90e2;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.timkiem button:hover {
+    background: #357abd;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+    flex: 1;
+
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+section {
+    padding: 80px 20px;
+
+    scroll-margin-top: 30px;
+}
+
+section h2 {
+    font-size: 35px;
+
+    margin-bottom: 15px;
+}
+
+section p {
+    font-size: 18px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   TRANG CHỦ
+========================= */
+
+.trangchu {
+    padding-top: 100px;
+
+    padding-bottom: 100px;
+}
+
+.trangchu h1 {
+    font-size: 55px;
+
+    margin-bottom: 25px;
+
+    color: #4a90e2;
+}
+
+.trangchu p {
+    max-width: 850px;
+
+    margin: auto;
+
+    font-size: 20px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn-batdau {
+    display: inline-block;
+    margin-top: 30px;
+
+    padding: 14px 28px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #4a90e2;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    text-decoration: none;
+}
+
+.btn-batdau:hover {
+    background: #357abd;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   TRAO ĐỔI
+========================= */
+
+.mo-ta {
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   DANH SÁCH SÁCH
+========================= */
+
+.sanpham {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+    margin-top: 30px;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.12);
+
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 15px 30px rgba(0, 0, 0, 0.18);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+
+    color: #4a90e2;
+}
+
+.card p {
+    font-size: 15px;
+
+    margin: 7px 0;
+}
+
+.card button {
+    margin-top: 15px;
+
+    padding: 10px 18px;
+
+    border: none;
+
+    border-radius: 20px;
+
+    background: #4a90e2;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+.book-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.book-actions button,
+.book-open {
+    display: inline-block;
+    margin: 0;
+    padding: 9px 13px;
+    border: 0;
+    border-radius: 20px;
+    background: #4a90e2;
+    color: white;
+    font-size: 13px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.book-actions button:hover,
+.book-open:hover {
+    background: #357abd;
+}
+
+.book-message {
+    min-height: 24px;
+    margin: 14px 0;
+    color: #4a647f;
+    font-size: 14px;
+}
+
+.book-message.error {
+    color: #a33d36;
+}
+
+.share-form {
+    width: min(100%, 680px);
+    margin: 24px auto 0;
+    text-align: left;
+}
+
+.share-form label {
+    display: block;
+    margin: 14px 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.share-form input {
+    display: block;
+    width: 100%;
+    height: 42px;
+    margin-top: 6px;
+    padding: 8px 12px;
+    border: 1px solid #d5dce3;
+    border-radius: 7px;
+    font: inherit;
+}
+
+.share-form .btn-batdau {
+    margin-top: 8px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    width: 100%;
+
+    padding: 35px 20px;
+
+    text-align: center;
+
+    background: #4a90e2;
+
+    color: white;
+
+    transition: 0.5s;
+}
+
+footer h2 {
+    margin-bottom: 15px;
+}
+
+footer p {
+    margin: 7px 0;
+
+    font-size: 15px;
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+body:has(#darkMode:checked) {
+    background: #242323;
+
+    color: white;
+}
+
+
+/* NAVBAR DARK */
+
+body:has(#darkMode:checked) nav {
+    background: #303030;
+}
+
+
+/* SEARCH */
+
+body:has(#darkMode:checked) .timkiem input {
+    background: #333;
+
+    color: white;
+
+    border-color: #555;
+}
+
+body:has(#darkMode:checked) .timkiem input::placeholder {
+    color: #bbb;
+}
+
+
+/* BUTTON */
+
+body:has(#darkMode:checked) .timkiem button {
+    background: #555;
+}
+
+
+/* CARD */
+
+body:has(#darkMode:checked) .card {
+    background: #333;
+
+    color: white;
+}
+
+body:has(#darkMode:checked) .book-message {
+    color: #c7d5e4;
+}
+
+body:has(#darkMode:checked) .share-form input {
+    border-color: #555;
+    background: #333;
+    color: white;
+}
+
+
+/* FOOTER */
+
+body:has(#darkMode:checked) footer {
+    background: #181818;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+    nav {
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        border-radius: 25px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .sanpham {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    nav {
+        flex-direction: column;
+
+        border-radius: 25px;
+    }
+
+    nav ul {
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    nav ul li {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .timkiem {
+        flex-direction: column;
+    }
+
+    .timkiem input {
+        width: 100%;
+    }
+
+    .timkiem button {
+        width: 100%;
+    }
+
+    .sanpham {
+        grid-template-columns: 1fr;
+    }
+
+    .book-actions {
+        flex-direction: column;
+    }
+
+    .book-actions button,
+    .book-open {
+        text-align: center;
+    }
+
+    .trangchu h1 {
+        font-size: 40px;
+    }
+}
