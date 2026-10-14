@@ -3,6 +3,7 @@ const { createServer } = require('node:http');
 const test = require('node:test');
 const jwt = require('jsonwebtoken');
 const { app } = require('../server');
+const { sequelize } = require('../models');
 const { verifyToken } = require('../middleware/authMiddleware');
 
 let server;
@@ -22,6 +23,10 @@ test.after(async () => {
         server.closeAllConnections();
         await new Promise((resolve, reject) => server.close(error => error ? reject(error) : resolve()));
     }
+});
+
+test('configures Sequelize to use PostgreSQL', () => {
+    assert.equal(sequelize.getDialect(), 'postgres');
 });
 
 test('health endpoint responds without a database connection', async () => {

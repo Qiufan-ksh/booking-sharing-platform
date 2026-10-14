@@ -539,6 +539,349 @@ footer {
     transition: 0.5s;
 }
 
+.account-link {
+    flex-shrink: 0;
+    padding: 10px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 999px;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.account-link:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+nav ul li a.active {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.filter-bar {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(120px, 1fr));
+    gap: 12px;
+    margin: 24px 0;
+    text-align: left;
+}
+
+.filter-bar label,
+.share-form label {
+    color: #394b5c;
+}
+
+.filter-bar select,
+.share-form select,
+.share-form textarea {
+    display: block;
+    width: 100%;
+    min-height: 42px;
+    margin-top: 6px;
+    padding: 8px 12px;
+    border: 1px solid #d5dce3;
+    border-radius: 7px;
+    background: white;
+    color: #222;
+    font: inherit;
+}
+
+.share-form textarea {
+    resize: vertical;
+}
+
+.share-form input[type="file"] {
+    height: auto;
+}
+
+.category-list,
+.book-badges,
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.category-chip,
+.book-badge {
+    padding: 9px 15px;
+    border: 1px solid #c7dcf4;
+    border-radius: 999px;
+    background: #eef6ff;
+    color: #357abd;
+    font: inherit;
+}
+
+.category-chip {
+    cursor: pointer;
+}
+
+.category-chip:hover {
+    background: #dcecff;
+}
+
+.card {
+    overflow: hidden;
+}
+
+.book-cover {
+    display: grid;
+    min-height: 90px;
+    margin: -25px -25px 18px;
+    place-items: center;
+    background: linear-gradient(135deg, #4a90e2, #79b4ec);
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.book-cover img {
+    width: 100%;
+    height: 100%;
+    max-height: 220px;
+    object-fit: cover;
+}
+
+.book-badges {
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.book-badge {
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.card-description {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.secondary-button {
+    margin: 10px;
+    padding: 12px 18px;
+    border: 1px solid #4a90e2;
+    border-radius: 24px;
+    background: white;
+    color: #357abd;
+    cursor: pointer;
+}
+
+.secondary-button:hover {
+    background: #eef6ff;
+}
+
+.profile-activity {
+    display: grid;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.profile-activity h3 {
+    color: #4a90e2;
+}
+
+.detail-panel {
+    max-width: 850px;
+    margin: auto;
+    padding: 32px;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    text-align: left;
+}
+
+.detail-panel h1 {
+    margin: 12px 0 20px;
+    color: #4a90e2;
+    text-align: center;
+}
+
+.detail-panel p {
+    margin: 12px 0;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.detail-panel .book-actions {
+    justify-content: flex-start;
+}
+
+.exchange-callout {
+    padding: 36px 24px;
+    border-radius: 20px;
+    background: #eef6ff;
+}
+
+.exchange-form {
+    max-width: 680px;
+}
+
+.profile-activity {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.book-dialog {
+    width: min(680px, calc(100% - 32px));
+    max-height: 85vh;
+    margin: auto;
+    padding: 32px;
+    overflow-y: auto;
+    border: 0;
+    border-radius: 20px;
+    color: #222;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+}
+
+.book-dialog::backdrop {
+    background: rgba(20, 35, 50, 0.58);
+}
+
+.book-dialog h2 {
+    padding-right: 26px;
+    color: #4a90e2;
+}
+
+.book-dialog p {
+    margin: 10px 0;
+    font-size: 15px;
+    text-align: left;
+}
+
+.detail-cover {
+    margin: -32px -32px 22px;
+}
+
+.detail-description {
+    margin: 20px 0 !important;
+    white-space: pre-wrap;
+}
+
+.dialog-close {
+    position: sticky;
+    top: 0;
+    float: right;
+    z-index: 1;
+    width: 36px;
+    height: 36px;
+    margin: -18px -18px 0 0;
+    border: 0;
+    border-radius: 50%;
+    background: white;
+    color: #333;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+body.dark-theme {
+    background: #18212b;
+    color: #edf3f9;
+}
+
+body.dark-theme .card,
+body.dark-theme .book-dialog,
+body.dark-theme .detail-panel,
+body.dark-theme .filter-bar select,
+body.dark-theme .share-form select,
+body.dark-theme .share-form textarea,
+body.dark-theme .share-form input {
+    background: #24313e;
+    color: #edf3f9;
+}
+
+body.dark-theme .exchange-callout {
+    background: #24313e;
+}
+
+body.dark-theme .secondary-button {
+    background: #24313e;
+    color: #9bc8f5;
+}
+
+body.dark-theme .filter-bar label,
+body.dark-theme .share-form label {
+    color: #d8e4ef;
+}
+
+@media (max-width: 1050px) {
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        border-radius: 28px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .filter-bar {
+        grid-template-columns: repeat(3, minmax(130px, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    header {
+        padding: 16px 4% 0;
+    }
+
+    nav {
+        gap: 10px;
+        padding: 14px;
+    }
+
+    nav ul {
+        gap: 2px;
+    }
+
+    nav ul li a {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    .logo a {
+        font-size: 23px;
+    }
+
+    .timkiem {
+        padding: 0 4%;
+    }
+
+    main {
+        width: 96%;
+    }
+
+    section {
+        padding: 56px 12px;
+    }
+
+    section h2 {
+        font-size: 28px;
+    }
+
+    .trangchu h1 {
+        font-size: 42px;
+    }
+
+    .sanpham,
+    .filter-bar {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-activity {
+        grid-template-columns: 1fr;
+    }
+
+    .account-link {
+        font-size: 13px;
+    }
+}
+
 footer h2 {
     margin-bottom: 15px;
 }

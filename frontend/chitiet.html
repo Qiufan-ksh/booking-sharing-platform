@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chi tiết tài liệu - StudyShare</title>
+    <link rel="stylesheet" href="giaodien.css">
+    <script src="studyshare-pages.js" defer></script>
+</head>
+<body data-page="detail">
+    <header>
+        <nav aria-label="Điều hướng chính">
+            <div class="logo"><a href="giaodien.html">StudyShare</a></div>
+            <ul>
+                <li><a href="giaodien.html">Trang chủ</a></li>
+                <li><a href="tailieu.html">Tài liệu</a></li>
+                <li><a href="tailieu.html#traodoi">Trao đổi</a></li>
+                <li><a href="tailieucuatoi.html">Tài liệu của tôi</a></li>
+            </ul>
+            <a class="account-link" id="account-link" href="dangkidangnhap.html">Đăng nhập/Đăng ký</a>
+            <input type="checkbox" id="darkMode" aria-label="Bật chế độ tối">
+            <label for="darkMode" class="toggle" title="Chế độ tối"><span></span></label>
+        </nav>
+    </header>
+    <main>
+        <section id="book-detail" aria-live="polite"><p id="page-message" class="book-message">Đang tải tài liệu...</p></section>
+        <section id="traodoi">
+            <h2>Liên hệ và đề nghị trao đổi</h2>
+            <p class="mo-ta">Gửi lời nhắn quan tâm đến người đăng tài liệu.</p>
+            <form class="share-form exchange-form" id="exchange-form">
+                <input type="hidden" name="bookId">
+                <label>Tài liệu<input type="text" name="bookTitle" readonly></label>
+                <label>Lời nhắn<textarea name="message" rows="4" maxlength="1000" placeholder="Bạn muốn mượn, nhận tặng hoặc trao đổi tài liệu nào?"></textarea></label>
+                <button class="btn-batdau" type="submit">Gửi đề nghị</button>
+            </form>
+            <p id="exchange-message" class="book-message" role="status" aria-live="polite"></p>
+        </section>
+        <section>
+            <h2>Tài liệu tương tự</h2>
+            <div class="sanpham" id="similar-list"></div>
+        </section>
+    </main>
+    <footer><div class="container"><h2>StudyShare</h2><p>©2026 StudyShare</p></div></footer>
+</body>
+</html>

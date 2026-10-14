@@ -1,5 +1,6 @@
 const { Book, Interaction, User } = require('../models');
 const { Op } = require('sequelize');
+const { normalizeMajor, normalizeSubject } = require('./dataPreprocessor');
 
 class RecommendationService {
     async getRecommendationsForUser(userId) {
@@ -18,26 +19,34 @@ class RecommendationService {
         const subjectScores = new Map();
         userInteractions.forEach(item => {
             if (item.Book) {
-                const subject = item.Book.subject;
-                subjectScores.set(subject, (subjectScores.get(subject) || 0) + item.weight);
+                const subject = normalizeSubject(item.Book.subject);
+                if (subject) {
+                    subjectScores.set(subject, (subjectScores.get(subject) || 0) + Number(item.weight || 1));
+                }
             }
         });
 
         const interactedBookIds = [...new Set(userInteractions.map(item => item.bookId))];
+        const preferredMajor = normalizeMajor(user.major) || user.major;
         const candidates = await Book.findAll({
             where: {
-                major: user.major,
+                ...(preferredMajor ? { major: preferredMajor } : {}),
                 ...(interactedBookIds.length ? { id: { [Op.notIn]: interactedBookIds } } : {})
             },
             order: [['createdAt', 'DESC']],
-            limit: 10
+            limit: 20
         });
 
         return candidates
-            .map(book => ({
-                ...book.toJSON(),
-                recommendationScore: (subjectScores.get(book.subject) || 0) * 2 + 1
-            }))
+            .map(book => {
+                const normalizedSubject = normalizeSubject(book.subject);
+                const subjectBoost = subjectScores.get(normalizedSubject) || 0;
+
+                return {
+                    ...book.toJSON(),
+                    recommendationScore: subjectBoost * 2 + (normalizedSubject ? 1 : 0)
+                };
+            })
             .sort((first, second) =>
                 second.recommendationScore - first.recommendationScore ||
                 new Date(second.createdAt) - new Date(first.createdAt)

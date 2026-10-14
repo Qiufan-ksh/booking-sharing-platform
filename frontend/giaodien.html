@@ -1,224 +1,59 @@
 <!doctype html>
 <html lang="vi">
-
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>StudyShare - Chia Sẻ Học Liệu</title>
-
     <link rel="stylesheet" href="giaodien.css">
-    <script src="giaodien.js" defer></script>
+    <script src="studyshare-pages.js" defer></script>
 </head>
-
-<body>
-
-    <!-- HEADER -->
+<body data-page="home">
     <header>
-
-        <!-- NAVBAR -->
-        <nav>
-
-            <!-- LOGO -->
-            <div class="logo">
-                <a href="#trangchu">
-                    <span>StudyShare</span>
-                </a>
-            </div>
-
-
-            <!-- MENU -->
+        <nav aria-label="Điều hướng chính">
+            <div class="logo"><a href="giaodien.html">StudyShare</a></div>
             <ul>
-
-                <li>
-                    <a href="#trangchu">
-                        Trang chủ
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#traodoi">
-                        Tài liệu
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#dangtin">
-                        Đăng tin
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#chat">
-                        Chat
-                    </a>
-                </li>
-
-                <li>
-                    <a id="account-link" href="dangkidangnhap.html">
-                        Đăng nhập/Đăng ký
-                    </a>
-                </li>
-
+                <li><a class="active" href="giaodien.html">Trang chủ</a></li>
+                <li><a href="tailieu.html">Tài liệu</a></li>
+                <li><a href="tailieu.html#traodoi">Trao đổi</a></li>
+                <li><a href="tailieucuatoi.html">Tài liệu của tôi</a></li>
             </ul>
-
-
-            <!-- DARK / LIGHT MODE -->
-            <input type="checkbox" id="darkMode">
-
-            <label for="darkMode" class="toggle">
-                <span></span>
-            </label>
-
+            <a class="account-link" id="account-link" href="dangkidangnhap.html">Đăng nhập/Đăng ký</a>
+            <input type="checkbox" id="darkMode" aria-label="Bật chế độ tối">
+            <label for="darkMode" class="toggle" title="Chế độ tối"><span></span></label>
         </nav>
-
-
-        <!-- THANH TÌM KIẾM -->
-        <form class="timkiem" id="search-form">
-
-            <input
-                type="text"
-                name="search"
-                placeholder="Nhập tên sách, tài liệu cần tìm kiếm..."
-            >
-
-            <button type="submit">
-                Tìm kiếm
-            </button>
-
+        <form class="timkiem" id="quick-search">
+            <input type="search" name="search" placeholder="Nhập tên sách, tác giả hoặc từ khóa..." aria-label="Tìm kiếm nhanh">
+            <button type="submit">Tìm kiếm</button>
         </form>
-
     </header>
-
-
-    <!-- NỘI DUNG CHÍNH -->
     <main>
-
-
-        <!-- TRANG CHỦ -->
-        <section id="trangchu" class="trangchu">
-
+        <section class="trangchu">
             <h1>StudyShare</h1>
-
-            <p>
-                Nền tảng chia sẻ và trao đổi sách giáo trình,
-                tài liệu học tập cho sinh viên khối ngành kỹ thuật
-                kết hợp hệ thống gợi ý thông minh.
-            </p>
-
-            <a class="btn-batdau" href="#traodoi">
-                Khám phá tài liệu
-            </a>
-
+            <p>Nền tảng chia sẻ và trao đổi sách giáo trình, tài liệu học tập dành cho sinh viên khối ngành kỹ thuật</p>
+            <a class="btn-batdau" href="tailieu.html">Khám phá tài liệu</a>
         </section>
-
-        <section id="goiy" hidden>
+        <p id="page-message" class="book-message" role="status" aria-live="polite"></p>
+        <section id="recommendations" hidden>
             <h2>Gợi ý dành cho bạn</h2>
-            <p class="mo-ta">Tài liệu được chọn theo ngành học và lịch sử quan tâm của bạn.</p>
+            <p class="mo-ta">Tài liệu được gợi ý dựa trên ngành học và hoạt động của bạn.</p>
             <div class="sanpham" id="recommendation-list"></div>
         </section>
-
-        <!-- TRAO ĐỔI -->
-        <section id="traodoi">
-
-            <h2>Sách và tài liệu</h2>
-
-            <p class="mo-ta">
-                Tìm kiếm, chia sẻ và trao đổi tài liệu học tập
-                với sinh viên.
-            </p>
-
-            <p id="book-message" class="book-message" role="status" aria-live="polite"></p>
-            <div class="sanpham" id="book-list">
-                <p class="book-message">Đang tải tài liệu...</p>
-            </div>
-
+        <section>
+            <h2>Tài liệu mới được đăng</h2>
+            <p class="mo-ta">Những chia sẻ mới nhất từ cộng đồng sinh viên.</p>
+            <div class="sanpham" id="new-book-list"></div>
         </section>
-
-
-        <!-- ĐĂNG TIN -->
-        <section id="dangtin">
-
-            <h2>
-                Đăng tin
-            </h2>
-
-            <p>
-                Sinh viên có thể đăng sách hoặc tài liệu
-                để chia sẻ và trao đổi với những sinh viên khác.
-            </p>
-
-            <p id="share-notice" class="book-message"></p>
-
-            <form id="share-form" class="share-form" hidden>
-                <label>
-                    Tên tài liệu
-                    <input name="title" type="text" maxlength="200" required>
-                </label>
-                <label>
-                    Môn học
-                    <input name="subject" type="text" maxlength="150" required>
-                </label>
-                <label>
-                    Ngành học
-                    <input name="major" type="text" maxlength="150" required>
-                </label>
-                <label>
-                    Đường dẫn tài liệu (không bắt buộc)
-                    <input name="fileUrl" type="url" maxlength="2048" placeholder="https://...">
-                </label>
-                <button class="btn-batdau" type="submit">Đăng tài liệu</button>
-            </form>
-
+        <section>
+            <h2>Tài liệu phổ biến</h2>
+            <p class="mo-ta">Khám phá tài liệu có lượt tương tác cao trên thiết bị này.</p>
+            <div class="sanpham" id="popular-book-list"></div>
         </section>
-
-
-        <!-- CHAT -->
-        <section id="chat">
-
-            <h2>
-                Chat
-            </h2>
-
-            <p>
-                Trao đổi thông tin về sách và tài liệu
-                với người dùng khác.
-            </p>
-
+        <section>
+            <h2>Danh mục ngành học và môn học</h2>
+            <p class="mo-ta">Chọn một danh mục để lọc tài liệu.</p>
+            <div class="category-list" id="category-list"></div>
         </section>
-
     </main>
-
-
-    <!-- FOOTER -->
-    <footer id="lienhe">
-
-        <div class="container">
-
-            <h2>
-                StudyShare
-            </h2>
-
-            <p>
-                Địa chỉ: Số 18 Phố Viên, Đức Thắng, Từ Liêm, Hà Nội
-            </p>
-
-            <p>
-                Số điện thoại: 0123456789
-            </p>
-
-            <p>
-                Email: studyshare@gmail.com
-            </p>
-
-            <p>
-                ©2026 Bản quyền thuộc về StudyShare
-            </p>
-
-        </div>
-
-    </footer>
-
+    <footer><div class="container"><h2>StudyShare</h2><p>Chia sẻ tri thức, kết nối sinh viên.</p><p>©2026 StudyShare</p></div></footer>
 </body>
-
 </html>

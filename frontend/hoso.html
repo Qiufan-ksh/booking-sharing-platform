@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tài khoản và hồ sơ sinh viên - StudyShare</title>
+    <link rel="stylesheet" href="giaodien.css">
+    <script src="studyshare-pages.js" defer></script>
+</head>
+<body data-page="profile">
+    <header>
+        <nav aria-label="Điều hướng chính">
+            <div class="logo"><a href="giaodien.html">StudyShare</a></div>
+            <ul>
+                <li><a href="giaodien.html">Trang chủ</a></li>
+                <li><a href="tailieu.html">Tài liệu</a></li>
+                <li><a href="tailieu.html#traodoi">Trao đổi</a></li>
+                <li><a href="tailieucuatoi.html">Tài liệu của tôi</a></li>
+            </ul>
+            <a class="account-link active" id="account-link" href="hoso.html">Hồ sơ sinh viên</a>
+            <input type="checkbox" id="darkMode" aria-label="Bật chế độ tối">
+            <label for="darkMode" class="toggle" title="Chế độ tối"><span></span></label>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h1>Hồ sơ sinh viên</h1>
+            <p id="profile-notice" class="book-message" role="status" aria-live="polite">Đang tải hồ sơ...</p>
+            <form class="share-form profile-form" id="profile-form" hidden>
+                <label>Họ và tên<input name="fullName" type="text" maxlength="100" required></label>
+                <label>Trường<input name="school" type="text" maxlength="150"></label>
+                <label>Khoa<input name="faculty" type="text" maxlength="150"></label>
+                <label>Ngành học<input name="major" type="text" maxlength="150"></label>
+                <label>Môn học quan tâm<input name="subjects" type="text" maxlength="500" placeholder="Ví dụ: Toán cao cấp, Cơ học"></label>
+                <div class="form-actions">
+                    <button class="btn-batdau" type="submit">Cập nhật hồ sơ</button>
+                    <button class="secondary-button" id="logout-button" type="button">Đăng xuất</button>
+                </div>
+            </form>
+        </section>
+        <section class="profile-activity">
+            <div><h2>Môn học quan tâm</h2><div class="category-list" id="interest-list"></div></div>
+            <div><h2>Tìm kiếm gần đây</h2><div class="category-list" id="search-history-list"></div></div>
+            <div><h2>Tài liệu yêu thích</h2><div class="sanpham" id="favorite-list"></div></div>
+            <div><h2>Lịch sử xem</h2><div class="sanpham" id="history-list"></div></div>
+            <div><h2>Lịch sử tương tác</h2><div id="interaction-list"></div></div>
+        </section>
+    </main>
+    <footer><div class="container"><h2>StudyShare</h2><p>©2026 StudyShare</p></div></footer>
+</body>
+</html>

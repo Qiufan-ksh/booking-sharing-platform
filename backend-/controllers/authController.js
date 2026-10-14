@@ -2,6 +2,7 @@ const { User } = require('../models');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { getJwtSecret } = require('../middleware/authMiddleware');
+const { normalizeMajor } = require('../services/dataPreprocessor');
 
 function publicUser(user) {
     return {
@@ -28,11 +29,12 @@ class AuthController {
                 return res.status(400).json({ success: false, message: 'Mật khẩu cần có ít nhất 8 ký tự.' });
             }
 
+            const normalizedMajor = normalizeMajor(major);
             const user = await User.create({
                 username: username.trim(),
                 email: email.trim().toLowerCase(),
                 passwordHash: await bcrypt.hash(password, 12),
-                major: typeof major === 'string' && major.trim() ? major.trim() : 'Chưa cập nhật',
+                major: normalizedMajor || 'Chưa cập nhật',
                 academicYear: academicYear === '' || academicYear == null ? null : Number(academicYear)
             });
 

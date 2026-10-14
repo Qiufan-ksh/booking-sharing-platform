@@ -40,7 +40,7 @@ app.use((error, req, res, next) => {
     if (error.statusCode === 404) {
         return res.status(404).json({ success: false, message: error.message });
     }
-    if (error.name === 'SequelizeValidationError' || error.name === 'SequelizeDatabaseError' && error.parent?.code === 'ER_TRUNCATED_WRONG_VALUE') {
+    if (error.name === 'SequelizeValidationError' || error.name === 'SequelizeDatabaseError' && error.parent?.code === '22P02') {
         return res.status(400).json({ success: false, message: 'Dữ liệu gửi lên không hợp lệ.' });
     }
 

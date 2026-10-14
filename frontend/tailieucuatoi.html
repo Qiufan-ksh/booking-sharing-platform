@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Đăng và quản lý tài liệu - StudyShare</title>
+    <link rel="stylesheet" href="giaodien.css">
+    <script src="studyshare-pages.js" defer></script>
+</head>
+<body data-page="manage">
+    <header>
+        <nav aria-label="Điều hướng chính">
+            <div class="logo"><a href="giaodien.html">StudyShare</a></div>
+            <ul>
+                <li><a href="giaodien.html">Trang chủ</a></li>
+                <li><a href="tailieu.html">Tài liệu</a></li>
+                <li><a href="tailieu.html#traodoi">Trao đổi</a></li>
+                <li><a class="active" href="tailieucuatoi.html">Tài liệu của tôi</a></li>
+            </ul>
+            <a class="account-link" id="account-link" href="dangkidangnhap.html">Đăng nhập/Đăng ký</a>
+            <input type="checkbox" id="darkMode" aria-label="Bật chế độ tối">
+            <label for="darkMode" class="toggle" title="Chế độ tối"><span></span></label>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h1>Đăng tài liệu</h1>
+            <p id="manage-notice" class="book-message" role="status" aria-live="polite">Đang tải...</p>
+            <form class="share-form" id="share-form" hidden>
+                <label>Tên sách / tài liệu<input name="title" type="text" maxlength="200" required></label>
+                <label>Tác giả<input name="author" type="text" maxlength="150"></label>
+                <label>Mô tả<textarea name="description" maxlength="2000" rows="4"></textarea></label>
+                <label>Môn học<input name="subject" type="text" maxlength="150" required></label>
+                <label>Ngành học<input name="major" type="text" maxlength="150" required></label>
+                <label>Loại tài liệu<select name="documentType"><option>Giáo trình</option><option>Tài liệu học tập</option><option>Sách tham khảo</option></select></label>
+                <label>Định dạng<select name="format"><option>PDF</option><option>DOCX</option><option>PPTX</option><option>Sách giấy</option></select></label>
+                <label>Hình thức chia sẻ<select name="shareType"><option>Tải tài liệu</option><option>Cho mượn</option><option>Tặng</option><option>Trao đổi</option></select></label>
+                <label>Tình trạng<select name="status"><option>Còn sẵn</option><option>Đang cho mượn</option><option>Đã trao đổi</option></select></label>
+                <label>Năm xuất bản<input name="publicationYear" type="number" min="1900" max="2100"></label>
+                <label>Ảnh bìa (URL)<input name="coverUrl" type="url" maxlength="2048" placeholder="https://..."></label>
+                <label>Đường dẫn tài liệu<input name="fileUrl" type="url" maxlength="2048" placeholder="https://..."></label>
+                <label>Hoặc chọn tệp (tối đa 500 KB; lưu trên thiết bị)<input name="attachment" type="file" accept=".pdf,.doc,.docx,.ppt,.pptx"></label>
+                <div class="form-actions">
+                    <button class="btn-batdau" name="submitPost" type="submit">Đăng tài liệu</button>
+                    <button class="secondary-button" id="cancel-edit" type="button" hidden>Hủy chỉnh sửa</button>
+                </div>
+            </form>
+        </section>
+        <section>
+            <h2>Tài liệu đã đăng</h2>
+            <p class="mo-ta">Chỉnh sửa thông tin, ẩn hoặc gỡ tài liệu khỏi danh sách cá nhân.</p>
+            <div class="sanpham" id="my-book-list"></div>
+        </section>
+    </main>
+    <footer><div class="container"><h2>StudyShare</h2><p>©2026 StudyShare</p></div></footer>
+</body>
+</html>

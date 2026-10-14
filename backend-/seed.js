@@ -1,6 +1,7 @@
 require('dotenv').config();
 const { sequelize, Book } = require('./models');
 const syncDatabase = require('./config/syncDatabase');
+const { normalizeBookInput } = require('./services/dataPreprocessor');
 
 async function seedData() {
     try {
@@ -15,7 +16,15 @@ async function seedData() {
         ];
 
         for (const [title, subject, major] of samples) {
-            await Book.findOrCreate({ where: { title }, defaults: { subject, major } });
+            const normalizedBook = normalizeBookInput({ title, subject, major });
+            if (!normalizedBook.title || !normalizedBook.subject || !normalizedBook.major) {
+                continue;
+            }
+
+            await Book.findOrCreate({
+                where: { title: normalizedBook.title },
+                defaults: { subject: normalizedBook.subject, major: normalizedBook.major }
+            });
         }
 
         console.log('Đã thêm tài liệu mẫu; dữ liệu hiện có được giữ nguyên.');

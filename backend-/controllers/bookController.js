@@ -1,19 +1,23 @@
 const { Book } = require('../models');
 const { Op } = require('sequelize');
+const { normalizeBookInput, normalizeMajor, normalizeSubject, normalizeText } = require('../services/dataPreprocessor');
 
 class BookController {
     async getAllBooks(req, res, next) {
         try {
             const { major, subject, search } = req.query;
             const where = {};
+            const normalizedMajor = typeof major === 'string' ? normalizeMajor(major) : '';
+            const normalizedSubject = typeof subject === 'string' ? normalizeSubject(subject) : '';
 
-            if (typeof major === 'string' && major.trim()) where.major = major.trim();
-            if (typeof subject === 'string' && subject.trim()) where.subject = subject.trim();
+            if (normalizedMajor) where.major = normalizedMajor;
+            if (normalizedSubject) where.subject = normalizedSubject;
             if (typeof search === 'string' && search.trim()) {
+                const cleanedSearch = normalizeText(search);
                 where[Op.or] = [
-                    { title: { [Op.like]: `%${search.trim()}%` } },
-                    { subject: { [Op.like]: `%${search.trim()}%` } },
-                    { major: { [Op.like]: `%${search.trim()}%` } }
+                    { title: { [Op.iLike]: `%${cleanedSearch}%` } },
+                    { subject: { [Op.iLike]: `%${cleanedSearch}%` } },
+                    { major: { [Op.iLike]: `%${cleanedSearch}%` } }
                 ];
             }
 
@@ -26,19 +30,19 @@ class BookController {
 
     async createBook(req, res, next) {
         try {
-            const { title, subject, major, fileUrl } = req.body;
-            if (![title, subject, major].every(value => typeof value === 'string' && value.trim())) {
+            const normalizedBook = normalizeBookInput(req.body);
+            if (![normalizedBook.title, normalizedBook.subject, normalizedBook.major].every(Boolean)) {
                 return res.status(400).json({ success: false, message: 'Vui lòng nhập tên tài liệu, môn học và ngành học.' });
             }
-            if (fileUrl && typeof fileUrl !== 'string') {
+            if (req.body.fileUrl && typeof req.body.fileUrl !== 'string') {
                 return res.status(400).json({ success: false, message: 'Đường dẫn tài liệu không hợp lệ.' });
             }
 
             const book = await Book.create({
-                title: title.trim(),
-                subject: subject.trim(),
-                major: major.trim(),
-                fileUrl: fileUrl ? fileUrl.trim() : null
+                title: normalizedBook.title,
+                subject: normalizedBook.subject,
+                major: normalizedBook.major,
+                fileUrl: normalizedBook.fileUrl
             });
             return res.status(201).json({ success: true, data: book });
         } catch (error) {

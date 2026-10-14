@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tìm kiếm tài liệu - StudyShare</title>
+    <link rel="stylesheet" href="giaodien.css">
+    <script src="studyshare-pages.js" defer></script>
+</head>
+<body data-page="search">
+    <header>
+        <nav aria-label="Điều hướng chính">
+            <div class="logo"><a href="giaodien.html">StudyShare</a></div>
+            <ul>
+                <li><a href="giaodien.html">Trang chủ</a></li>
+                <li><a class="active" href="tailieu.html">Tài liệu</a></li>
+                <li><a href="#traodoi">Trao đổi</a></li>
+                <li><a href="tailieucuatoi.html">Tài liệu của tôi</a></li>
+            </ul>
+            <a class="account-link" id="account-link" href="dangkidangnhap.html">Đăng nhập/Đăng ký</a>
+            <input type="checkbox" id="darkMode" aria-label="Bật chế độ tối">
+            <label for="darkMode" class="toggle" title="Chế độ tối"><span></span></label>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h1>Tìm kiếm tài liệu</h1>
+            <p class="mo-ta">Tìm theo tên sách, tài liệu, tác giả hoặc từ khóa; kết hợp các bộ lọc để thu hẹp kết quả.</p>
+            <form class="timkiem" id="search-form">
+                <input id="search-input" type="search" name="search" placeholder="Tên sách, tác giả hoặc từ khóa..." aria-label="Từ khóa tìm kiếm">
+                <button type="submit">Tìm kiếm</button>
+            </form>
+            <form class="filter-bar" id="filter-form" aria-label="Lọc và sắp xếp tài liệu">
+                <label>Ngành học<select name="major"><option value="">Tất cả ngành học</option></select></label>
+                <label>Môn học<select name="subject"><option value="">Tất cả môn học</option></select></label>
+                <label>Loại tài liệu<select name="documentType"><option value="">Tất cả loại</option><option>Giáo trình</option><option>Tài liệu học tập</option><option>Sách tham khảo</option></select></label>
+                <label>Định dạng<select name="format"><option value="">Tất cả định dạng</option><option>PDF</option><option>DOCX</option><option>PPTX</option><option>Sách giấy</option></select></label>
+                <label>Hình thức<select name="shareType"><option value="">Tất cả hình thức</option><option>Tải tài liệu</option><option>Cho mượn</option><option>Tặng</option><option>Trao đổi</option></select></label>
+                <label>Sắp xếp<select name="sort"><option value="relevance">Độ phù hợp</option><option value="newest">Mới nhất</option><option value="popular">Phổ biến</option></select></label>
+            </form>
+            <p id="page-message" class="book-message" role="status" aria-live="polite"></p>
+            <p id="result-count" class="book-message" role="status"></p>
+            <div class="sanpham" id="book-list"></div>
+        </section>
+        <section id="traodoi" class="exchange-callout">
+            <h2>Muốn trao đổi tài liệu?</h2>
+            <p>Chọn tài liệu phù hợp, mở trang chi tiết và gửi đề nghị trao đổi đến người đăng.</p>
+        </section>
+    </main>
+    <footer><div class="container"><h2>StudyShare</h2><p>©2026 StudyShare</p></div></footer>
+</body>
+</html>
